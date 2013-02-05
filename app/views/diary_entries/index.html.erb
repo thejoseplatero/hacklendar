@@ -1,0 +1,18 @@
+
+
+<table>
+	<% @diary_entries.each do |d| %>
+<tr>
+	<td> <%= d.title %> </td>
+	<td> <%= d.description %> </td>
+
+
+
+	<td><div style="color: <%= d.happy? %>"><%= d.title %></div></td>
+<%end%>
+
+
+
+	
+
+</table>

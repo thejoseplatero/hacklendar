@@ -2,7 +2,7 @@ class DiaryEntry < ActiveRecord::Base
 attr_accessible :title, :description, :mood
 
 	def happy?
-		if mood == "happy"
+		if mood == "Happy"
 			'red'
 		else
 			'black'

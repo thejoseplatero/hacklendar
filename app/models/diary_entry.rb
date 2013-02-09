@@ -6,8 +6,8 @@ attr_accessible :title, :description, :mood
 			'red'
 		else
 			'black'
+		end
 	end
-end
 
 	def self.by_title(title)
 		where(title: title)

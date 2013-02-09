@@ -1,19 +1,36 @@
 
+<!DOCTYPE html>
+<html lang="en">
 
-<table>
-	<% @diary_entries.each do |d| %>
-<tr>
-	<td> <%= d.title %> </td>
-	<td> <%= d.description %> </td>
+<body>
 
+<div class="container">
+	<h1>DIARY ENTRIES</h1>
 
+<table class="table table-bordered">
 
-	<td><div style="color: <%= d.happy? %>"><%= d.mood %></div></td>
-</tr>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>Mood</th>
+    </tr>
+ 
+<% @diary_entries.each do |d| %>
+	<tr>
+		<td> <%= d.title %> </td>
+		<td> <%= d.description %></td>
+		<td><div style="color: <%= d.happy? %>"><%= d.mood %></div></td>
+	</tr>
 <%end%>
-
-
 
 </table>
 
-<%=link_to 'New Diary Entry', new_diary_entry_path %>
+<p>
+	<%=link_to 'New Diary Entry',new_diary_entry_path, class: "btn btn-large btn-primary" %>
+</p>
+
+</div>
+
+
+</body>
+</html>

@@ -4,8 +4,18 @@
 	<body>
 		<div class="container">
 			<h3>NEW DIARY ENTRY </h3>
-
+<div id ="error_explanation">
 			<%=form_for(@diary_entry) do |f| %>
+
+			<% if @diary_entry.errors.any? %>
+				<h3>THE FOLLOWING ERRORS HAVE BEEN FOUND</h3>
+			<% @diary_entry.errors.full_messages.each do |error| %>
+				<li> <%= error %> </li>
+		
+			<% end %>
+		</div>
+		<% end %>
+
 				<%= f.label :title %> 
 				<%= f.text_field :title 	%>
 

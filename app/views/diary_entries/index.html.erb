@@ -20,6 +20,8 @@
 		<td> <%= d.title %> </td>
 		<td> <%= d.description %></td>
 		<td><div style="color: <%= d.happy? %>"><%= d.mood %></div></td>
+		<td> <%=link_to 'Show', @diaryentry %> </td>
+
 	</tr>
 <%end%>
 

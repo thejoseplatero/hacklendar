@@ -1,6 +1,12 @@
 <div class="hero-unit">
-  <h1>Diary Entries</h1>
-</div>
+  <h1>Diary</h1>
+  <p>What's on your mind?</p>
+<p>
+  <%=link_to  'New Entry',new_diary_entry_path, :class => "btn btn-large btn-primary" %>
+</p>
+	</div>
+
+
 
 
 		<table class="table table-bordered">
@@ -29,8 +35,6 @@
 			</tbody>
 		</table>
 
-			<p>
-			<%=link_to 'New Diary Entry',new_diary_entry_path, class: "btn btn-large btn-primary" %>
-			</p>
+			
 
 

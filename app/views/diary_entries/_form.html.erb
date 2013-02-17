@@ -1,4 +1,7 @@
-	<h4>NEW DIARY ENTRY </h4>
+<div class="hero-unit">
+  <h1>What's up?</h1>
+  
+</div>
 
 	<%=form_for @diary_entry, :html => { :class =>'form-horizontal'} do |f| %>
 		<% if @diary_entry.errors.any? %>
@@ -34,9 +37,22 @@
 		</div>
 	</div>
 
- 	<div class="form-actions">
-    	<%= f.submit "Submit" , class: "btn btn-large btn-primary" %>
-    </div>
 
-	<% end %>	
+<div class="form-actions">
+<div class="span8">
+<%= link_to 'Cancel', diary_entries_path, class: 'btn btn-large' %>
+  
 
+<%= f.submit "Submit" , class: "btn btn-large btn-primary" %> 
+
+
+
+</div>
+</div>   
+
+
+ 
+
+<% end %>	
+
+	

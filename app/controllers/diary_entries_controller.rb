@@ -8,6 +8,10 @@ class DiaryEntriesController < ApplicationController
 
 	end
 
+	def show
+		@diary_entry = DiaryEntry.find(params[:id])
+	end
+
 	def new
 		@diary_entry = DiaryEntry.new
 	end
@@ -26,7 +30,7 @@ class DiaryEntriesController < ApplicationController
 	end
 
 	def edit
-		@dairy_entry = DiaryEntry.find(params[:id])
+		@diary_entry = DiaryEntry.find(params[:id])
 	end
 
 	def update

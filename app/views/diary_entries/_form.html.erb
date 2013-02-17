@@ -1,0 +1,42 @@
+
+<!DOCTYPE html>
+<html lang="en">
+	<body>
+
+		<div class="container">
+				<h3>NEW DIARY ENTRY </h3>
+
+				<%=form_for(@diary_entry) do |f| %>
+
+
+			
+
+			<% if @diary_entry.errors.any? %>
+<div id ="error_explanation">
+
+				<h3>THE FOLLOWING ERRORS HAVE BEEN FOUND</h3>
+			<% @diary_entry.errors.full_messages.each do |error| %>
+				<li> <%= error %> </li>
+		
+			<% end %>
+		</div>
+		<% end %>
+
+				<%= f.label :title %> 
+				<%= f.text_field :title 	%>
+
+				<%= f.label :description %> 
+				<%= f.text_area :description%>
+
+				<%= f.label :mood %> 
+				<%= f.select :mood, ['Happy', 'Sad', 'Sappy'] %>
+  
+					<p>
+						<%= f.submit "Submit" , class: "btn btn-large btn-primary" %>
+					</p>
+		</div>
+
+			<% end %>	
+
+	</body>
+</html>

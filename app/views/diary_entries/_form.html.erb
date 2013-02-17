@@ -1,36 +1,53 @@
 
-<!DOCTYPE html>
-<html lang="en">
-	<body>
 
-		<div class="container-fluid">
-				<h3>NEW DIARY ENTRY </h3>
+	
+				<h4>NEW DIARY ENTRY </h4>
 
-<%=form_for(@diary_entry) do |f| %>
+<%=form_for @diary_entry, :html => { :class =>'form-horizontal'} do |f| %>
+
 			<% if @diary_entry.errors.any? %>
+
+
+			<div class="alert alert-error">
+
 <div id ="error_explanation">
 
-				<h3>THE FOLLOWING ERRORS HAVE BEEN FOUND</h3>
+				
 			<% @diary_entry.errors.full_messages.each do |error| %>
-				<li> <%= error %> </li>
+
+				<ol> <span class="label label-important">Important</span> <%= error %> </ol>
 		
 			<% end %>
 		</div>
+		</div>
 		<% end %>
 
-				<%= f.label :title %> 
-				<%= f.text_field :title 	%>
 
-				<%= f.label :description %> 
-				<%= f.text_area :description%>
-
-				<%= f.label :mood %> 
-				<%= f.select :mood, ['Happy', 'Sad', 'Sappy'] %>
-  
-					<p>
-						<%= f.submit "Submit" , class: "btn btn-large btn-primary" %>
-					</p>
+	<div class="control-group">
+		<%= f.label :title, :class => 'control-label' %> 
+		<div class ="controls">
+			<%= f.text_field :title , :class =>'text_field'%> 
 		</div>
+	</div>
+
+	<div class="control-group">
+		<%= f.label :description, :class => 'control-label' %>  
+		<div class ="controls">
+			 <%= f.text_area :description, :class => 'text_area'%> 
+		</div>
+	</div>
+
+	<div class="control-group">
+			<%= f.label :mood, :class => 'control-label' %> 
+		<div class ="controls">
+			 <%= f.select :mood, ['Happy', 'Sad', 'Sappy'], :class =>'select' %> 
+		</div>
+	</div>
+
+ <div class="form-actions">
+    	<%= f.submit "Submit" , class: "btn btn-large btn-primary" %>
+    </div>
+	
 
 			<% end %>	
 

@@ -1,41 +1,33 @@
-<!DOCTYPE html>
-<html lang="en">
-	<body>
 
-		
-<div class="container-fluid">
-	<h1>DIARY ENTRIES</h1>
+	<h2>DIARY ENTRIES</h2>
 
-<table class="table table-bordered">
-
+<table class="table table-striped">
+<thead>
     <tr>
       <th>Title</th>
       <th>Description</th>
       <th>Mood</th>
-      <th>Controls</th>
+      <th>Actions</th>
     </tr>
- 
+ </thead>
+ <tbody>
 <% @diary_entries.each do |d| %>
 	<tr>
 		<td> <%= d.title %> </td>
 		<td> <%= d.description %></td>
 		<td><div style="color: <%= d.happy? %>"><%= d.mood %></div></td>
 	
-	
-		
+<td>   <%=link_to 'Show', d, :class => 'btn btn-small' %> </td>
+<td>   <%= link_to 'Edit', edit_diary_entry_path(d),  :class => 'btn btn-small'  %> </td>
 
-<td>  <i class="icon-eye-open"> </i>  <%=link_to 'Show', d %> </a></td>
-<td>  <i class="icon-edit"> </i>  <%= link_to 'Edit', edit_diary_entry_path(d) %> </a></td>
+<td>   <%= link_to 'Destroy', d, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small'  %> </td>
 
-<td>  <i class="icon-trash"> </i> <%= link_to 'Destroy', d, method: :delete, data: { confirm: 'Are you sure?' } %></a></td>
-
-
-        <td></td>
 
 	</tr>
 
 
 <%end%>
+</tbody>
 
 </table>
 
@@ -43,7 +35,6 @@
 	<%=link_to 'New Diary Entry',new_diary_entry_path, class: "btn btn-large btn-primary" %>
 </p>
 
-</div>
 
 
 </body>

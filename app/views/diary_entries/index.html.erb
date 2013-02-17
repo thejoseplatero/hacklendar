@@ -1,44 +1,36 @@
 <div class="hero-unit">
   <h1>Diary Entries</h1>
-  <p></p>
-
 </div>
 
-<table class="table table-bordered">
-<thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Mood</th>
-      <th>Actions</th>
-    </tr>
- </thead>
- <tbody>
-<% @diary_entries.each do |d| %>
-	<tr>
-		<td> <%= d.title %> </td>
-		<td> <%= d.description %></td>
-		<td><div style="color: <%= d.happy? %>"><%= d.mood %></div></td>
-	
-<td>   <%=link_to 'Show', d, :class => 'btn btn-small' %> </td>
-<td>   <%= link_to 'Edit', edit_diary_entry_path(d),  :class => 'btn btn-small'  %> </td>
 
-<td>   <%= link_to 'Destroy', d, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small'  %> </td>
+		<table class="table table-bordered">
+			<thead>
+   			 <tr>
+    		 	<th>Title</th>
+    		 	<th>Description</th>
+   				<th>Mood</th>
+   			 	<th>Last Updated</th>
+   			 	<th>Actions</th>
+   			 </tr>
+ 			</thead>
+ 
+ 			<tbody>
+				<% @diary_entries.each do |d| %>
+			<tr>
+				<td> <%= d.title %> </td>
+				<td> <%= d.description %></td>
+				<td><div style="color: <%= d.happy? %>"><%= d.mood %></div></td>
+				<td> <%= time_ago_in_words(d.updated_at, include_seconds = false)  %> ago</td>
+				<td> <%=link_to 'Show', d, :class => 'btn btn-small' %> </td>
+				<td> <%= link_to 'Edit', edit_diary_entry_path(d),  :class => 'btn btn-small'  %> </td>
+				<td> <%= link_to 'Destroy', d, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small'  %> </td>
+			</tr>
+				<%end%>
+			</tbody>
+		</table>
 
-
-	</tr>
-
-
-<%end%>
-</tbody>
-
-</table>
-
-<p>
-	<%=link_to 'New Diary Entry',new_diary_entry_path, class: "btn btn-large btn-primary" %>
-</p>
+			<p>
+			<%=link_to 'New Diary Entry',new_diary_entry_path, class: "btn btn-large btn-primary" %>
+			</p>
 
 
-
-</body>
-</html>

@@ -1,37 +1,27 @@
+	<h4>NEW DIARY ENTRY </h4>
 
-
-	
-				<h4>NEW DIARY ENTRY </h4>
-
-<%=form_for @diary_entry, :html => { :class =>'form-horizontal'} do |f| %>
-
-			<% if @diary_entry.errors.any? %>
-
+	<%=form_for @diary_entry, :html => { :class =>'form-horizontal'} do |f| %>
+		<% if @diary_entry.errors.any? %>
 
 			<div class="alert alert-error">
-
-<div id ="error_explanation">
-
-				
+				<div id ="error_explanation">
 			<% @diary_entry.errors.full_messages.each do |error| %>
-
 				<ol> <span class="label label-important">Important</span> <%= error %> </ol>
-		
 			<% end %>
-		</div>
-		</div>
+				</div>
+			</div>
 		<% end %>
 
 
 	<div class="control-group">
-		<%= f.label :title, :class => 'control-label' %> 
+			<%= f.label :title, :class => 'control-label' %> 
 		<div class ="controls">
 			<%= f.text_field :title , :class =>'text_field'%> 
 		</div>
 	</div>
 
 	<div class="control-group">
-		<%= f.label :description, :class => 'control-label' %>  
+			<%= f.label :description, :class => 'control-label' %>  
 		<div class ="controls">
 			 <%= f.text_area :description, :class => 'text_area', :rows=>'6' %> 
 		</div>
@@ -44,13 +34,9 @@
 		</div>
 	</div>
 
- <div class="form-actions">
+ 	<div class="form-actions">
     	<%= f.submit "Submit" , class: "btn btn-large btn-primary" %>
-
     </div>
 
+	<% end %>	
 
-			<% end %>	
-
-	</body>
-</html>

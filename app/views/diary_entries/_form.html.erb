@@ -3,14 +3,10 @@
 <html lang="en">
 	<body>
 
-		<div class="container">
+		<div class="container-fluid">
 				<h3>NEW DIARY ENTRY </h3>
 
-				<%=form_for(@diary_entry) do |f| %>
-
-
-			
-
+<%=form_for(@diary_entry) do |f| %>
 			<% if @diary_entry.errors.any? %>
 <div id ="error_explanation">
 

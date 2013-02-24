@@ -18,12 +18,6 @@ validates :mood, :presence => true
 
 	def happy?
 		mood == "Happy"
-		#	'red'
-			
-		#else
-		#	'black'
-		
-		#end
 	end
 
 	def self.by_title(title)

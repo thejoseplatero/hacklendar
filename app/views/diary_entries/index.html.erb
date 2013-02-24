@@ -1,3 +1,5 @@
+<%= render  'calendar' =%>
+
 <div class="hero-unit">
   <h1>Diary</h1>
   <p>What's on your mind?</p>
@@ -5,16 +7,13 @@
   <%=link_to  'New Entry',new_diary_entry_path, :class => "btn btn-large btn-primary" %>
 </p>
 	</div>
-
-
-
-
 		<table class="table table-bordered">
 			<thead>
    			 <tr>
     		 	<th>Title</th>
     		 	<th>Description</th>
    				<th>Mood</th>
+   				<th>Created</th>
    			 	<th>Last Updated</th>
    			 	<th>Actions</th>
    			 </tr>
@@ -26,14 +25,21 @@
 				<td> <%= d.title %> </td>
 				<td> <%= d.description %></td>
 				<td><div style="color: <%= d.happy? %>"><%= d.mood %></div></td>
+				<td> <%= time_ago_in_words(d.created_at, include_seconds = false)  %> ago</td>
 				<td> <%= time_ago_in_words(d.updated_at, include_seconds = false)  %> ago</td>
 				<td> <%=link_to 'Show', d, :class => 'btn btn-small' %> </td>
 				<td> <%= link_to 'Edit', edit_diary_entry_path(d),  :class => 'btn btn-small'  %> </td>
 				<td> <%= link_to 'Destroy', d, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-small'  %> </td>
+
 			</tr>
 				<%end%>
 			</tbody>
 		</table>
+
+<%= link_to 'Previous Day', diary_entries_path(day: @day -1), :class => 'btn btn-small' %>
+
+		  <%= link_to 'Next Day', diary_entries_path(day: @day + 1.day), :class => 'btn btn-small' %>
+		  
 
 			
 

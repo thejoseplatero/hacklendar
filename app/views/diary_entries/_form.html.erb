@@ -38,21 +38,13 @@
 	</div>
 
 
-<div class="form-actions">
-<div class="span8">
-<%= link_to 'Cancel', diary_entries_path, class: 'btn btn-large' %>
-  
+	<div class="form-actions">
+		<div class="span8">
+			<%= link_to 'Cancel', diary_entries_path, class: 'btn btn-large' %>
+			<%= f.submit "Submit" , class: "btn btn-large btn-primary" %> 
+		</div>
+	</div>   
 
-<%= f.submit "Submit" , class: "btn btn-large btn-primary" %> 
-
-
-
-</div>
-</div>   
-
-
- 
-
-<% end %>	
+	<% end %>	
 
 	

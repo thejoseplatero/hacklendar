@@ -1,12 +1,28 @@
 class DiaryEntriesController < ApplicationController
 
 	def index
+
+		#@diary_entries = DiaryEntry.all
+
+		if params[:day]
+				@day = params[:day].to_date
+			else
+				@day = Date.today	
+		end
 		
-		@diary_entries = DiaryEntry.all
+		@diary_entries = DiaryEntry.where(created_at: @day.beginning_of_day..@day.end_of_day)
+		@diary_entries_month = DiaryEntry.where(created_at: @day.beginning_of_month..@day.end_of_month)
+		
+		#@diary_entries_count = DiaryEntry.where(mood:'happy').count
 
-		@diary_entries_count = DiaryEntry.where(mood:'happy').count
+		@days_of_entries = DiaryEntry.where(created_at: @day.beginning_of_month..@day.end_of_month).map do |diary_entry| 
+			diary_entry.created_at.to_date
+		end
+		
+	
 
-	end
+		
+end
 
 	def show
 		@diary_entry = DiaryEntry.find(params[:id])

@@ -1,7 +1,7 @@
 
-<h2> <%=@day.strftime("%B %Y") %></h2>
-	<%= link_to 'Previous Month', diary_entries_path(day: @day -1.month), :class => 'btn btn-small' %>
-	<%= link_to 'Next Month', diary_entries_path(day: @day + 1.month), :class => 'btn btn-small' %>
+<h2> 
+	<%= link_to 'Previous Month', diary_entries_path(day: @day -1.month), :class => 'btn btn-small' %><%=@day.strftime("%B %Y") %>
+	<%= link_to 'Next Month', diary_entries_path(day: @day + 1.month), :class => 'btn btn-small' %></h2>
 
 	<table class="table table-bordered">
 		<% (@day.beginning_of_month.beginning_of_week..@day.end_of_month.end_of_week).each do |day| %>
@@ -11,9 +11,6 @@
 			end %>
 
 			<% is_happy = entries.any?{|entry| entry.happy?} %>
-
-
-
 
  			<% if day.monday? %>
  				<tr>	
